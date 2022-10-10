@@ -1,34 +1,103 @@
 <template>
-  <nav class="navbar navbar-expand-lg bg-light">
+  <nav
+    class="navbar navbar-expand-lg text-start"
+    style="background-color: #3b8ea5"
+  >
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Login</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
+      <a
+        class="navbar-brand"
+        style="color: yellow; font-family: Times New Roman"
+        href="#"
+        >Login</a
       >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Register</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
-          </li>
-        </ul>
-      </div>
+      <a
+        class="navbar-brand text-white"
+        style="font-family: Times New Roman"
+        aria-current="page"
+        href="#"
+        >Register</a
+      >
     </div>
   </nav>
+  <div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <br />
+        <br />
+        <br />
+        <b
+          ><h2 class="mt-5">The Marconi Lab</h2>
+          <p>ML Research Evalution Platform</p></b
+        >
+      </div>
+      <div class="col">
+        <form style="background-color: rgb(215, 215, 215)">
+          <div class="mb-3 text-start">
+            <label
+              for="validationCustom01"
+              class="form-label text-dark mt-5 ms-5 rounded-4"
+              >Team name</label
+            >
+            <input
+              type="text"
+              class="form-control ms-5 me-2"
+              id="validationCustom01"
+              required
+            />
+          </div>
+          <div class="mb-4 text-start">
+            <label for="exampleInputPassword1" class="form-label text-dark ms-5"
+              >Password</label
+            >
+            <input
+              v-model="password"
+              :rules="passwordRules"
+              :type="passwordShow ? 'text' : 'password'"
+              prepend-inner-icon="mdi-key"
+              :append-icon="passwordShow ? 'mdi-eye' : 'mdi-eye-off'"
+              @click:append="passwordShow = !passwordShow"
+              required
+              class="form-control ms-5"
+              id="exampleInputPassword1"
+            />
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary mb-5 ms-1"
+            style="background-color: #3b8ea5"
+            @click="doLogin"
+          >
+            Login
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
 </template>
+
+<script>
+export default {
+  name: "login-screen",
+  data: () => ({
+    passwordShow: false,
+    password: "",
+    passwordRules: [
+      (v) => !!v || "Password is required",
+      (v) => (v && v.length >= 6) || "Password must be 6  characters or more!",
+    ],
+  }),
+};
+</script>
+
+<style scoped>
+.container {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+.form-control {
+  width: 83%;
+}
+.btn {
+  width: 83%;
+}
+</style>
