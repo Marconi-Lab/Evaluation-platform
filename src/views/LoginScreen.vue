@@ -14,7 +14,7 @@
         class="navbar-brand text-white"
         style="font-family: Times New Roman"
         aria-current="page"
-        href="#"
+        href="/#/signup"
         >Register</a
       >
     </div>
