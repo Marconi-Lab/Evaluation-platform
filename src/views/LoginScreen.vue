@@ -67,7 +67,7 @@
             style="background-color: #3b8ea5"
             @click="doLogin"
           >
-            Login
+            <a href="/#/landingpage" class="text-white">Login</a>
           </button>
         </form>
       </div>

@@ -18,6 +18,11 @@ const routes = [
     name: "SignUp",
     component: () => import("../views/SignUp.vue"),
   },
+  {
+    path: "/landingpage",
+    name: "Landing Page",
+    component: () => import("../views/LandingPage.vue"),
+  },
 ];
 
 const router = createRouter({
