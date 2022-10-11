@@ -1,7 +1,7 @@
 <template>
   <nav
     class="navbar navbar-expand-lg text-start"
-    style="background-color: #3b8ea5"
+    style="background-color: #3891a6"
   >
     <div class="container-fluid">
       <a
@@ -64,7 +64,7 @@
           <button
             type="submit"
             class="btn btn-primary mb-5 ms-1"
-            style="background-color: #3b8ea5"
+            style="background-color: #3891a6"
             @click="doLogin"
           >
             <a href="/#/landingpage" class="text-white">Login</a>
