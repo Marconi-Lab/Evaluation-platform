@@ -15,9 +15,11 @@
           class="card-img-top"
           alt=""
         />
-        <div class="card-body">
+        <div class="card-body me-2">
           <p class="card-text">
-            <a href="#" class="btn">Determining cassava disease</a>
+            <a href="#" class="btn text-primary"
+              >Detecting diseases in a cassava crop</a
+            >
           </p>
         </div>
       </div>
