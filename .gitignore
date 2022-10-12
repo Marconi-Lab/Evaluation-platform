@@ -9,3 +9,6 @@ model/databd/
 
 #config
 config/
+
+# static files
+static/

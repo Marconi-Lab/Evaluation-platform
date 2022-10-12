@@ -3,8 +3,8 @@ const fs = require('fs');
 // const { finished } = require('stream');
 
 //file will be got from database
-const uploaded_data = './exple.csv'
-const correct_data = './correct.csv'
+const uploaded_data = '../static/one.csv'
+const correct_data = '../static/two.csv'
 
 let file = async (filepath) => {
     var nameS = [];
@@ -18,7 +18,8 @@ let file = async (filepath) => {
 
         .pipe(csv())
         .on('data', (row) => {
-            let name = row['CANDY PURCHASED'];
+            let name = row.mark
+            // let name = row['mark'];
             nameS.push(name);
         })
 
@@ -30,27 +31,27 @@ let file = async (filepath) => {
     let res = await end
     return res
 }
-console.log("------yap")
 
-exports.score = (req, res) => {
+
+// exports.score = async(req, res, next) => {
     
-try {
+// try {
     
-file(uploaded_data).then(res => {
+file(uploaded_data).then(res1 => {
     
     var correct = 0
     var wrong = 0
     file(correct_data).then(res2 => {
         for (var i=0; i<res2.length; i++){
-            if (res[i] === res2[i]) correct=correct+1
+            if (res1[i] === res2[i]) correct=correct+1
                 wrong=wrong+1
         }
         var score = correct/res2.length
         console.log(score.toFixed(3));
-        res.status(200).json({data: score.toFixed(3)})
+        // res.status(200).json({data: score.toFixed(3)})
     })
 })
 
-}
-catch(err){res.json({err})}
-}
+// }
+// catch(err){res.json({err})}
+// }

@@ -12,4 +12,6 @@ router.get('/projects', proj.findProject)
 
 router.get('/score', scores.score)
 
+router.post('/upload_file', proj.upload)
+
 module.exports = router;
