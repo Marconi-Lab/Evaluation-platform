@@ -1,24 +1,5 @@
 <template>
-  <nav
-    class="navbar navbar-expand-lg text-start"
-    style="background-color: #3891a6"
-  >
-    <div class="container-fluid">
-      <a
-        class="navbar-brand"
-        style="color: yellow; font-family: Times New Roman"
-        href="#"
-        >Login</a
-      >
-      <a
-        class="navbar-brand text-white"
-        style="font-family: Times New Roman"
-        aria-current="page"
-        href="/#/signup"
-        >Register</a
-      >
-    </div>
-  </nav>
+  <landing-navigation />
   <div class="container text-center">
     <div class="row">
       <div class="col">
@@ -79,8 +60,12 @@
 </template>
 
 <script>
+import LandingNavigation from "@/components/common/LandingNavigation.vue";
 export default {
   name: "login-screen",
+  components: {
+    LandingNavigation,
+  },
   data: () => ({
     passwordShow: false,
     password: "",
