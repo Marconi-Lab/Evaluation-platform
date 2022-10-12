@@ -30,7 +30,7 @@ module.exports = [
   {
     id: 3,
     image_url:
-      "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.growveg.com%2Fplant-diseases%2Fus-and-canada%2Fbean-rust%2F&psig=AOvVaw2t-50skma9U8fTaO8jH3B6&ust=1665686713832000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCLC47tqs2_oCFQAAAAAdAAAAABAE",
+      "https://gardenplannerwebsites.azureedge.net/diseases/bean-rust.jpg",
     title: "Detecting diseases in the bean crop",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. \

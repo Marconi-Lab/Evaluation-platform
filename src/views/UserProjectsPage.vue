@@ -9,12 +9,13 @@
       <h4 class="text-dark mt-3">The Marconi Lab ML Evaluation Platform</h4>
     </div>
     <div class="row row-cols-1 row-cols-md-4 g-4 mt-5">
-      <div class="col">
+      <div class="col" v-for="project in projects" :key="project.id">
         <div class="card h-100 ms-2 me-2">
           <img
-            src="../assets/images/A-cassava-plant-affected-by-mosaic-wilt.-Source-Flickr.webp"
+            :src="project.image_url"
             class="card-img-top"
             alt=""
+            height="200"
           />
           <div class="card-body me-2">
             <p class="card-text">
@@ -30,11 +31,19 @@
 </template>
 
 <script>
+import projects from "@/services/projects";
 export default {
   data: function () {
     return {
       img1: "../assets/images/audio processing.png",
+      projects,
     };
   },
 };
 </script>
+
+<style scoped>
+.card-img-top {
+  object-fit: cover;
+}
+</style>
