@@ -61,14 +61,17 @@
               id="exampleInputPassword1"
             />
           </div>
-          <button
-            type="submit"
-            class="btn btn-primary mb-5 ms-1"
-            style="background-color: #3891a6"
-            @click="doLogin"
+          <router-link to="/landingpage" class="text-white"
+            ><button
+              type="submit"
+              class="btn btn-primary mb-5 ms-1"
+              style="background-color: #3891a6"
+              @click="doLogin"
+            >
+              Login
+              <!-- <RouterLink h></RouterLink><a href="/#/landingpage" class="text-white">Login</a> -->
+            </button></router-link
           >
-            <a href="/#/landingpage" class="text-white">Login</a>
-          </button>
         </form>
       </div>
     </div>
@@ -99,5 +102,7 @@ export default {
 }
 .btn {
   width: 83%;
+}
+.navbar-brand {
 }
 </style>
