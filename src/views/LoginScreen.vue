@@ -1,17 +1,16 @@
 <template>
   <landing-navigation />
-  <div class="container text-center">
+  <div class="container" style="height: 90vh">
     <div class="row">
-      <div class="col">
-        <br />
-        <br />
-        <br />
-        <b
-          ><h2 class="mt-5">The Marconi Lab</h2>
-          <p>ML Research Evalution Platform</p></b
-        >
+      <div
+        class="col-sm-6 d-flex justify-content-center align-items-center text-left"
+      >
+        <div class="d-flex flex-column align-items-start">
+          <h2 class="heading">The Marconi Lab</h2>
+          <p class="sub-heading">ML Research Evalution Platform</p>
+        </div>
       </div>
-      <div class="col">
+      <div class="col-sm-6 d-flex justify-content-center align-items-center">
         <form style="background-color: rgb(215, 215, 215)">
           <div class="mb-3 text-start">
             <label
@@ -78,16 +77,19 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  margin-top: 10%;
-  margin-bottom: 10%;
-}
 .form-control {
   width: 83%;
 }
 .btn {
   width: 83%;
 }
-.navbar-brand {
+.row {
+  height: 100%;
+}
+.heading {
+  font-size: 40px;
+}
+.sub-heading {
+  font-size: 24px;
 }
 </style>
