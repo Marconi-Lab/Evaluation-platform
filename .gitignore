@@ -3,3 +3,9 @@ node_modules/
 
 #csv files
 csv_file/*.csv
+
+# databd files
+model/databd/
+
+#config
+config/

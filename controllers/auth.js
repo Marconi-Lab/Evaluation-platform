@@ -1,5 +1,4 @@
-const User = require("../model/log");
-const Project = require("../model/project")
+const User = require("../model/userModel");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
@@ -54,11 +53,3 @@ exports.login = async(req, res, next) => {
     }
     catch(err){res.json({msg: err})}
 }
-
-exports.findProject = async(req, res, next) => {
-    const project = await Project.find({})
-    res.status(200).json({
-        data: project,
-        msg: "that is the data"
-    })
-};
