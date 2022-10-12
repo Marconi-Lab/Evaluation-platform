@@ -1,12 +1,13 @@
 <template>
   <nav class="navbar navbar-expand-lg" style="background: #3891a6">
     <div class="container-fluid col-12">
-      <a class="navbar-brand ms-auto text-white" href="#">Navbar</a>
+      <a class="navbar-brand ms-auto text-white" href="#">Team A</a>
     </div>
   </nav>
   <div class="container">
     <div>
       <h4 class="text-dark mt-3">The Marconi Lab ML Evaluation Platform</h4>
+      <SearchBar />
     </div>
     <div class="row row-cols-1 row-cols-md-4 g-4 mt-5">
       <div class="col" v-for="project in projects" :key="project.id">
@@ -19,9 +20,11 @@
 <script>
 import projects from "@/services/projects";
 import ImageCard from "@/components/common/ImageCard.vue";
+import SearchBar from "@/components/common/SearchBar.vue";
 export default {
   components: {
     ImageCard,
+    SearchBar,
   },
   data: function () {
     return {
