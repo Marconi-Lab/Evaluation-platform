@@ -27,7 +27,7 @@
         id="exampleInputPassword1"
       />
     </div>
-    <router-link to="/landingpage" class="text-white"
+    <router-link to="/projects" class="text-white"
       ><button
         type="submit"
         class="btn btn-primary my-4"
