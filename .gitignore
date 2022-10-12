@@ -1,2 +1,5 @@
 #dependecies
 node_modules/
+
+#csv files
+csv_file/*.csv
