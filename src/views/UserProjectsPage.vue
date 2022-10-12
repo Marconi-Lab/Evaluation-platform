@@ -10,21 +10,7 @@
     </div>
     <div class="row row-cols-1 row-cols-md-4 g-4 mt-5">
       <div class="col" v-for="project in projects" :key="project.id">
-        <div class="card h-100 ms-2 me-2">
-          <img
-            :src="project.image_url"
-            class="card-img-top"
-            alt=""
-            height="200"
-          />
-          <div class="card-body me-2">
-            <p class="card-text">
-              <a href="#" class="btn text-primary"
-                >Detecting diseases in a cassava crop</a
-              >
-            </p>
-          </div>
-        </div>
+        <ImageCard :title="project.title" :image_url="project.image_url" />
       </div>
     </div>
   </div>
@@ -32,7 +18,11 @@
 
 <script>
 import projects from "@/services/projects";
+import ImageCard from "@/components/common/ImageCard.vue";
 export default {
+  components: {
+    ImageCard,
+  },
   data: function () {
     return {
       img1: "../assets/images/audio processing.png",
