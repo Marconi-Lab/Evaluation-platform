@@ -7,7 +7,7 @@ const uploaded_data = '../static/one.csv'
 const correct_data = '../static/two.csv'
 
 let file = async (filepath) => {
-    var nameS = [];
+    var col_detail = [];
     let end = new Promise( function(resolve, reject){
         fs.createReadStream(filepath)
         .on('error', () => {
@@ -18,14 +18,14 @@ let file = async (filepath) => {
 
         .pipe(csv())
         .on('data', (row) => {
-            let name = row.mark
+            let mark = row.mark
             // let name = row['mark'];
-            nameS.push(name);
+            col_detail.push(mark);
         })
 
         .on('end', () => {
             // handle end of CSV
-            resolve(nameS)
+            resolve(col_detail)
         })
     })
     let res = await end
@@ -33,9 +33,9 @@ let file = async (filepath) => {
 }
 
 
-// exports.score = async(req, res, next) => {
+exports.score = async(req, res, next) => {
     
-// try {
+try {
     
 file(uploaded_data).then(res1 => {
     
@@ -52,6 +52,6 @@ file(uploaded_data).then(res1 => {
     })
 })
 
-// }
-// catch(err){res.json({err})}
-// }
+}
+catch(err){res.json({err})}
+}

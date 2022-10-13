@@ -2,7 +2,7 @@
 node_modules/
 
 #csv files
-csv_file/*.csv
+# csv_file/
 
 # databd files
 model/databd/
@@ -11,4 +11,4 @@ model/databd/
 config/
 
 # static files
-static/
+# static/

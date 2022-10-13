@@ -6,11 +6,15 @@ const evaluateSchema = new schema({
         type: Number
     },
     team_id: {
-        type: Number
+        type: Number,
+        // foreign key should refer to primary key of user
+        _id: {type: mongoose.Schema.Type.ObjectId, ref: 'user'}
     },
     project_id: {
-        type: Int,
-        required: true
+        type: Number,
+        required: true,
+        // foreign key should refer to primary key of project
+        _id: {type: mongoose.Schema.Type.ObjectId, ref: 'Projects'}
     },
     user_validation_labels_url: {
         type: String
