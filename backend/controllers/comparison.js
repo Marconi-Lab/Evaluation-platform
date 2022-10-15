@@ -51,6 +51,7 @@ exports.score = async (req, res, next) => {
           let score = res2[i].score;
           // get corresponding instance from uploaded data
           let incomingScore = res1.filter((x) => x.id === id)[0].score;
+
           // check if the scores are similar and update the correct counter variable
           if (score === incomingScore) {
             console.log(id);
@@ -63,7 +64,8 @@ exports.score = async (req, res, next) => {
         res.status(200).json({ prediction: prediction.toFixed(3) });
       });
     });
-  } catch (err) {
+  }
+  catch (err) {
     res.json({ err });
   }
 };

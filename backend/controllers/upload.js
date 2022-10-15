@@ -1,3 +1,6 @@
+const { score } = require("./comparison");
+
+
 exports.upload = async (req, res) => {
   try {
     if (!req.files) {
@@ -6,13 +9,16 @@ exports.upload = async (req, res) => {
         message: "No file uploaded",
       });
     } else {
-      //Use the name of the input field (i.e. "avatar") to retrieve the uploaded file
+      //Use the name of the input field to retrieve the uploaded file
       let file = req.files.csvFile;
 
+
       //Use the mv() method to place the file in the static directory
-      file.mv("static/" + avatar.name);
+      let name = "static/" + avatar.name
+      file.mv(name);
 
       //   TODO - Compute the score and update the evaluations document
+
 
       if (
         avatar.mimetype == "application/vnd.ms-excel" ||
@@ -34,6 +40,11 @@ exports.upload = async (req, res) => {
         // return res.redirect("/");
       }
     }
+
+    //import the evaluation schema and save the document while passing the team id and the project id plus the score
+    evaluation = score()
+
+    
   } catch (err) {
     res.status(500).send(err);
   }

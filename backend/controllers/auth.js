@@ -1,4 +1,4 @@
-const User = require("../model/userModel");
+const User = require("../model/user");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
@@ -53,3 +53,36 @@ exports.login = async(req, res, next) => {
     }
     catch(err){res.json({msg: err})}
 }
+
+exports.isAdmin = async (req, res, next)=>{
+  try{
+    // const { teamName } = req.body;
+    // const team = await User.findOne({teamName});
+    // if (!team) return res.json({msg: "No such Team Name, Please register"})
+
+    // if (team.role != "admin") throw new Error("Unauthorised, Only admins")
+    // next();
+
+    // find by the id....don't use the one above
+    const { team_id } = req.body;
+    const team = await User.findOne({ team_id })
+    if (!team) return res.json({msg: "No such ID, Please register"})
+    // if (team.role != "admin") throw new Error("Unauthorised, Only admins")
+    next();
+
+
+    //----------------------------------------------------------------------------
+      // res.locals.loggedInUser = await User.findById({}) ///////////////ask this
+      // const user = res.locals.loggedInUser;
+      // if (user.role != "admin") throw new Error("Unauthorized, Only admins")
+      // next();
+  }
+  catch (err) {
+      res.status(401).json(
+          {
+              msg: `${err}`
+          }
+      )
+  }
+}
+
