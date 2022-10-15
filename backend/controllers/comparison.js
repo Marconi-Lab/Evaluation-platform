@@ -9,13 +9,14 @@ const correct_data = "static/two.csv";
 
 let file = async (filepath) => {
   var col_detail = [];
-  console.log("Inside file");
+
+  // console.log("Inside file");
   let end = new Promise(function (resolve, reject) {
     fs.createReadStream(filepath)
       .pipe(csv())
       .on("data", (row) => {
-        console.log("Row ", row);
-        // let mark = row.mark;
+
+        // console.log("Row ", row);
         col_detail.push(row);
       })
       .on("error", () => {
@@ -25,7 +26,8 @@ let file = async (filepath) => {
       })
       .on("end", () => {
         // handle end of CSV
-        console.log("Column detail: ", col_detail);
+
+        // console.log("Column detail: ", col_detail);
         resolve(col_detail);
       });
   });
@@ -35,7 +37,7 @@ let file = async (filepath) => {
 
 exports.score = async (req, res, next) => {
   try {
-    console.log("Trying");
+    // console.log("Trying");
     file(uploaded_data).then((res1) => {
       // confirm that the csv file has the required columns
       assert(
@@ -44,7 +46,8 @@ exports.score = async (req, res, next) => {
       );
       var correct = 0; // correct labels counter variable
       file(correct_data).then((res2) => {
-        console.log("Res2: ", res2);
+        // console.log("Res2: ", res2);
+
         for (var i = 0; i < res2.length; i++) {
           // get instance id and score
           let id = res2[i].id;
@@ -54,14 +57,15 @@ exports.score = async (req, res, next) => {
 
           // check if the scores are similar and update the correct counter variable
           if (score === incomingScore) {
-            console.log(id);
-            console.log(`incoming ${incomingScore}, score ${score}`);
+            // console.log(id);
+            // console.log(`incoming ${incomingScore}, score ${score}`);
             correct = correct + 1;
           }
         }
         var prediction = correct / res2.length;
         console.log("Result: ", prediction.toFixed(3));
-        res.status(200).json({ prediction: prediction.toFixed(3) });
+
+        res.json({ prediction: prediction.toFixed(3) });
       });
     });
   }

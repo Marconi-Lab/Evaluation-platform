@@ -1,5 +1,5 @@
 const { score } = require("./comparison");
-
+const evalProject = require("../model/evaluate")
 
 exports.upload = async (req, res) => {
   try {
@@ -12,37 +12,42 @@ exports.upload = async (req, res) => {
       //Use the name of the input field to retrieve the uploaded file
       let file = req.files.csvFile;
 
-
+      
       //Use the mv() method to place the file in the static directory
-      let name = "static/" + avatar.name
+      let name = " 'static/' + file.name"
       file.mv(name);
+      
 
       //   TODO - Compute the score and update the evaluations document
-
+      
 
       if (
-        avatar.mimetype == "application/vnd.ms-excel" ||
-        avatar.mimetype == "text/csv"
+        file.mimetype == "application/vnd.ms-excel" ||
+        file.mimetype == "text/csv"
       )
+        console.log(file.size),
         //send response
         res.send({
           status: true,
           message: "File is uploaded",
           data: {
-            name: avatar.name,
-            mimetype: avatar.mimetype,
-            size: avatar.size,
+            name: file.name,
+            mimetype: file.mimetype,
+            size: file.size,
           },
         });
       else {
         console.log("Please Upload CSV Format file");
-        res.send({ msg: "Please Upload CSV Format file" });
-        // return res.redirect("/");
+        return res.send({ msg: "Please Upload CSV Format file" });
       }
-    }
 
-    //import the evaluation schema and save the document while passing the team id and the project id plus the score
-    evaluation = score()
+      //import the evaluation schema and save the document while passing the team id and the project id plus the score
+    const evaluation = score()
+    console.log(evaluation, "------h---------------")
+    
+
+    }
+    
 
     
   } catch (err) {

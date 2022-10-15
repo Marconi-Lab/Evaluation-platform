@@ -16,7 +16,7 @@ router.get("/projects", proj.getProjects);
 
 // the controller in this endpoint should be embedded in the file upload endpoint
 // thus there is no need for this
-router.get("/score", scores.score);
+// router.get("/score", scores.score);
 
 
 // router.put('/addproject', auth.isAdmin, proj.putProject);
