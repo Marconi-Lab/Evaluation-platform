@@ -64,8 +64,7 @@ exports.score = async (req, res, next) => {
         }
         var prediction = correct / res2.length;
         console.log("Result: ", prediction.toFixed(3));
-
-        res.json({ prediction: prediction.toFixed(3) });
+        res.status(200).json({ prediction: prediction.toFixed(3) });
       });
     });
   }

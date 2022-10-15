@@ -25,28 +25,38 @@ exports.upload = async (req, res) => {
         file.mimetype == "application/vnd.ms-excel" ||
         file.mimetype == "text/csv"
       )
-        console.log(file.size),
+        console.log(file.size);
         //send response
-        res.send({
-          status: true,
-          message: "File is uploaded",
-          data: {
-            name: file.name,
-            mimetype: file.mimetype,
-            size: file.size,
-          },
-        });
+        // res.send({
+        //   status: true,
+        //   message: "File is uploaded",
+        //   data: {
+        //     name: file.name,
+        //     mimetype: file.mimetype,
+        //     size: file.size,
+        //   },
+        // });
       else {
         console.log("Please Upload CSV Format file");
         return res.send({ msg: "Please Upload CSV Format file" });
       }
 
       //import the evaluation schema and save the document while passing the team id and the project id plus the score
-    const evaluation = score()
-    console.log(evaluation, "------h---------------")
-    
+    // const evaluation = score(name)
+    //will sort 
+
+    const newEvaluation = new evalProject({
+      team_id,
+      project_id: id,
+      score: score(name)
+    })
+    await newEvaluation.save();
+    res.json({
+      data: newEvaluation
+    })
 
     }
+    
     
 
     
