@@ -14,7 +14,7 @@ exports.upload = async (req, res) => {
 
       
       //Use the mv() method to place the file in the static directory
-      let name = " 'static/' + file.name"
+      let name = "static/ + file.name"
       file.mv(name);
       
 
