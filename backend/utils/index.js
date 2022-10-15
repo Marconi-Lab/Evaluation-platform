@@ -61,7 +61,6 @@ exports.deleteProject = async (req, res, next) => {
       //Checks if project exist
       const project = await Project.findById(projectId);
       if (!project) return res.json({ message: "Project doesn't exist or has already been deleted" });
-  
       await Project.findByIdAndDelete(projectId);
       res.status(200).json({
         data: null,
