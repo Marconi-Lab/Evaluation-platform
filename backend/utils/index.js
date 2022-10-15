@@ -22,7 +22,7 @@ exports.putProject = async (req, res, next) => {
             msg: `${err}`
         })
     }
-}
+};
 
 exports.getProjects = async (req, res, next) => {
     try{
@@ -52,7 +52,7 @@ exports.getProject = async (req, res, next) => {
             msg: `ProjectID incorrect`,
         });
     }
-}
+};
 
 exports.deleteProject = async (req, res, next) => {
     try {
@@ -75,17 +75,13 @@ exports.deleteProject = async (req, res, next) => {
 };
 
 // -------------------------------------------------
-
-exports.findEval = async (req, res, next) => {
+exports.getEvaluation = async (req, res, next) => {
     try{
         const projectid = req.params.project_id;
         const projEvaluation = await evalProject.findById(projectid);
 
-        if (!projEvaluation){ 
-            res.json({ msg: "Project not yet evaluated (upload csv for evaluation)" });
-        }
+        if (!projEvaluation) return res.json({ msg: "Project not yet evaluated (Upload csv for evaluation)" });
         res.status(200).json({ data: projEvaluation });
-
     }
     catch(err){
         res.status(401).json({
