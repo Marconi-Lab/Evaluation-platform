@@ -60,6 +60,7 @@ exports.deleteProject = async (req, res, next) => {
   
       //Checks if project exist
       const project = await Project.findById(projectId);
+
       if (!project) return res.json({ message: "Project doesn't exist or has already been deleted" });
       await Project.findByIdAndDelete(projectId);
       res.status(200).json({
@@ -78,19 +79,17 @@ exports.deleteProject = async (req, res, next) => {
 exports.findEval = async (req, res, next) => {
     try{
         const projectid = req.params.project_id;
-        const project = await Project.findById(projectid);
-        const correct_labels = await evalProject.findById(projectid);
+        const projEvaluation = await evalProject.findById(projectid);
 
-        if (!project) return res.json({ message: "Project does not exist" });
-        // res.status(200).json({ data: project });
-        // if (!correct_labels) throw new Error("------------------")
-        res.status(200).json({ data: correct_labels });
+        if (!projEvaluation){ 
+            res.json({ msg: "Project not yet evaluated (upload csv for evaluation)" });
+        }
+        res.status(200).json({ data: projEvaluation });
 
-        next();
     }
     catch(err){
         res.status(401).json({
-            msg: 'ProjectID incorrect',
+            msg: 'Incorrect Project Id',
         });
     }
 }
