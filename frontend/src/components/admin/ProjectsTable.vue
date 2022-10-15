@@ -8,7 +8,7 @@
     </thead>
     <tbody>
       <tr v-for="row in data" :key="row.id">
-        <td>{{ row.title }}</td>
+        <td class="project-name">{{ row.title }}</td>
         <td>
           <span
             ><svg
@@ -16,7 +16,7 @@
               width="16"
               height="16"
               fill="currentColor"
-              class="bi bi-trash-fill"
+              class="bi bi-trash-fill delete-icon"
               viewBox="0 0 16 16"
             >
               <path
@@ -51,4 +51,19 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.project-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.delete-icon {
+  color: #3891a6;
+}
+.delete-icon:hover {
+  color: red;
+}
+</style>
