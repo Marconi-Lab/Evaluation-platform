@@ -1,4 +1,5 @@
-const { score } = require("./comparison");
+// const { score } = require("./comparison");
+const score = require("./comparison")
 const evalProject = require("../model/evaluate")
 
 exports.upload = async (req, res) => {
@@ -14,11 +15,8 @@ exports.upload = async (req, res) => {
 
       
       //Use the mv() method to place the file in the static directory
-      let name = "static/ + file.name"
+      let name = "static/" + file.name
       file.mv(name);
-      
-
-      //   TODO - Compute the score and update the evaluations document
       
 
       if (
@@ -43,23 +41,24 @@ exports.upload = async (req, res) => {
 
       //import the evaluation schema and save the document while passing the team id and the project id plus the score
     // const evaluation = score(name)
-    //will sort 
-
+    //will sort
+    
+    console.log(score.prediction)
+    // res.status(200).json({ prediction: score.prediction });
+    // after the score is got it goes to the 
     const newEvaluation = new evalProject({
       team_id,
-      project_id: id,
-      score: score(name)
-    })
+      project_id,
+      score: score.prediction
+    });
+    console.log("-------------")
     await newEvaluation.save();
     res.json({
-      data: newEvaluation
+      data: newEvaluation,
+      msg: "successfull"
     })
 
     }
-    
-    
-
-    
   } catch (err) {
     res.status(500).send(err);
   }

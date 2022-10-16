@@ -10,7 +10,6 @@ const evaluateSchema = new schema({
     },
     project_id: {
         type: mongoose.Schema.Types.ObjectId, ref: 'projects' ,
-        required: true
     },
     score: {
         type: Number

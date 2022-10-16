@@ -35,7 +35,7 @@ let file = async (filepath) => {
   return res;
 };
 
-exports.score = async (req, res, next) => {
+// exports.score = async (req, res, next) => {
   try {
     // console.log("Trying");
     file(uploaded_data).then((res1) => {
@@ -63,12 +63,11 @@ exports.score = async (req, res, next) => {
           }
         }
         var prediction = correct / res2.length;
-        console.log("Result: ", prediction.toFixed(3));
-        res.status(200).json({ prediction: prediction.toFixed(3) });
+        exports.prediction = prediction.toFixed(3);
       });
     });
   }
   catch (err) {
     res.json({ err });
   }
-};
+// };
