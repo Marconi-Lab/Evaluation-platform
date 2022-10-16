@@ -51,7 +51,6 @@ exports.upload = async (req, res) => {
       project_id,
       score: score.prediction
     });
-    console.log("-------------")
     await newEvaluation.save();
     res.json({
       data: newEvaluation,
