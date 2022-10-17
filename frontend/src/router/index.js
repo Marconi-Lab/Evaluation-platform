@@ -13,9 +13,14 @@ const routes = [
     component: () => import("../views/SignUp.vue"),
   },
   {
-    path: "/projects",
-    name: "Projects Page",
-    component: () => import("../views/UserProjectsPage.vue"),
+    path: "/user",
+    children: [
+      {
+        path: "projects",
+        name: "Projects Page",
+        component: () => import("../views/UserProjectsPage.vue"),
+      },
+    ],
   },
   {
     path: "/admin",
