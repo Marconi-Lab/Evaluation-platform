@@ -1,6 +1,7 @@
 const csv = require("csv-parser");
 const fs = require("fs");
 const assert = require("assert");
+const { privateDecrypt } = require("crypto");
 // const { finished } = require('stream');
 
 //file will be got from database
@@ -35,39 +36,46 @@ let file = async (filepath) => {
   return res;
 };
 
-// exports.score = async (req, res, next) => {
+exports.score = async (uploaded_data, correct_data) => {
   try {
     // console.log("Trying");
-    file(uploaded_data).then((res1) => {
-      // confirm that the csv file has the required columns
-      assert(
-        Object.keys(res1[0]).includes("id" && "score"),
-        "CSV files lacks either or both the id and score columns"
-      );
-      var correct = 0; // correct labels counter variable
-      file(correct_data).then((res2) => {
-        // console.log("Res2: ", res2);
+    let resolvePrediction = new Promise(
+      function (resolve, reject) {
+        file(uploaded_data).then((res1) => {
+          // confirm that the csv file has the required columns
+          assert(
+            Object.keys(res1[0]).includes("id" && "score"),
+            "CSV files lacks either or both the id and score columns"
+          );
+          var correct = 0; // correct labels counter variable
+          file(correct_data).then((res2) => {
+            // console.log("Res2: ", res2);
 
-        for (var i = 0; i < res2.length; i++) {
-          // get instance id and score
-          let id = res2[i].id;
-          let score = res2[i].score;
-          // get corresponding instance from uploaded data
-          let incomingScore = res1.filter((x) => x.id === id)[0].score;
+            for (var i = 0; i < res2.length; i++) {
+              // get instance id and score
+              let id = res2[i].id;
+              let score = res2[i].score;
+              // get corresponding instance from uploaded data
+              let incomingScore = res1.filter((x) => x.id === id)[0].score;
 
-          // check if the scores are similar and update the correct counter variable
-          if (score === incomingScore) {
-            // console.log(id);
-            // console.log(`incoming ${incomingScore}, score ${score}`);
-            correct = correct + 1;
-          }
-        }
-        var prediction = correct / res2.length;
-        exports.prediction = prediction.toFixed(3);
+              // check if the scores are similar and update the correct counter variable
+              if (score === incomingScore) {
+                // console.log(id);
+                // console.log(`incoming ${incomingScore}, score ${score}`);
+                correct = correct + 1;
+              }
+            }
+            var prediction = correct / res2.length;
+            resolve(prediction.toFixed(3))
+
+          });
+        });
       });
-    });
+    let pred = await resolvePrediction
+    return pred;
   }
   catch (err) {
-    res.json({ err });
+    // res.json({ err });
+    console.log(err)
   }
-// };
+};

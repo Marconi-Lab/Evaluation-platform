@@ -6,15 +6,15 @@ const evaluateSchema = new schema({
         type: Number
     },
     team_id: {
-        type: mongoose.Schema.Types.ObjectId, ref: 'user'   
+        type: mongoose.Schema.Types.ObjectId, ref: 'user'
     },
     project_id: {
-        type: mongoose.Schema.Types.ObjectId, ref: 'projects' ,
+        type: mongoose.Schema.Types.ObjectId, ref: 'projects',
     },
     score: {
         type: Number
     }
-}, {timestamps: true})
+}, { timestamps: true })
 
 
 const evaluateProject = mongoose.model('Evaluation', evaluateSchema)

@@ -19,7 +19,7 @@ const projectSchema = new mongoose.Schema({
     description: {
         type: String
     }
-}, {timestamps: true})
+}, { timestamps: true })
 
-const project = mongoose.model('projects',projectSchema)
+const project = mongoose.model('projects', projectSchema)
 module.exports = project;

@@ -10,7 +10,8 @@ router.post("/register", auth.signup);
 router.post("/login", auth.login);
 
 // labels evaluation should be done at the time of upload
-router.post("/file", file.upload);
+//token should come in here
+router.post("/file", auth.token, file.upload);
 
 router.get("/projects", proj.getProjects);
 
