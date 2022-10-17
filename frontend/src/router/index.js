@@ -17,6 +17,16 @@ const routes = [
     name: "Projects Page",
     component: () => import("../views/UserProjectsPage.vue"),
   },
+  {
+    path: "/admin",
+    children: [
+      {
+        path: "projects",
+        name: "admin-projects",
+        component: () => import("../views/admin/Projects.vue"),
+      },
+    ],
+  },
 ];
 
 const router = createRouter({

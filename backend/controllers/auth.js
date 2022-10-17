@@ -1,6 +1,8 @@
-const User = require("../model/userModel");
+const User = require("../model/user");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const Project = require("../model/project");
+const { getProjects } = require("../utils");
 
 async function hashPassword(password) {
   return await bcrypt.hash(password, 10);
@@ -53,3 +55,20 @@ exports.login = async(req, res, next) => {
     }
     catch(err){res.json({msg: err})}
 }
+
+exports.isAdmin = async (req, res, next)=>{
+  try{
+    const { team_id } = req.body;
+    const team = await User.findOne({team_id})    //ask question here 
+    if (team.role != "admin") throw new Error("Unauthorised, Only admins")
+    next();
+  }
+  catch (err) {
+      res.status(401).json(
+          {
+              msg: `${err}`
+          }
+      )
+  }
+}
+
