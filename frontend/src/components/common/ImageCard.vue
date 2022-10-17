@@ -3,7 +3,9 @@
     <img :src="image_url" class="card-img-top" alt="" height="200" />
     <div class="card-body">
       <p class="card-text">
-        <router-link to="#" class="link">{{ title }}</router-link>
+        <router-link :to="'/user/project/' + id" class="link">{{
+          title
+        }}</router-link>
       </p>
     </div>
   </div>
@@ -15,6 +17,7 @@ export default {
   props: {
     image_url: String,
     title: String,
+    id: Number,
   },
 };
 </script>
