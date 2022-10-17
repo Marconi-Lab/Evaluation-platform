@@ -9,15 +9,17 @@ const projectSchema = new mongoose.Schema({
         required: true
     },
     image_url: {
-        type: String
+        type: String,
+        required: true
     },
     true_evaluation_labels_url: {
-        type: String
+        type: String,
+        required: true
     },
     description: {
         type: String
     }
 }, {timestamps: true})
 
-const project = mongoose.model('Projects',projectSchema)
+const project = mongoose.model('projects',projectSchema)
 module.exports = project;
