@@ -2,23 +2,30 @@ import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
   {
-    path: "/",
-    name: "LoginScreen",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/LoginScreen.vue"),
-  },
-  {
-    path: "/signup",
-    name: "SignUp",
-    component: () => import("../views/SignUp.vue"),
-  },
-  {
     path: "/user",
     children: [
       {
         path: "projects",
         name: "Projects Page",
-        component: () => import("../views/UserProjectsPage.vue"),
+        component: () => import("../views/user/UserProjectsPage.vue"),
+      },
+      {
+        path: "project/:id",
+        name: "project-page",
+        component: () => import("../views/user/Project.vue"),
+      },
+      {
+        path: "signup",
+        name: "SignUp",
+        component: () => import("../views/user/SignUp.vue"),
+      },
+      {
+        path: "/user",
+        name: "LoginScreen",
+        component: () =>
+          import(
+            /* webpackChunkName: "about" */ "../views/user/LoginScreen.vue"
+          ),
       },
     ],
   },
