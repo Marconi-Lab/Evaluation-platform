@@ -10,17 +10,14 @@
   <div class="col ms-5">
     <div class="row justify-content-between">
       <div class="col-4">
-        <!-- <ChooseFile /> -->
-        <div
-          class="image-upload border border-light justify-content-center rounded-5"
-        >
+        <div class="image-upload rounded-5">
           <label for="file-input">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="160"
-              height="200"
+              width="50%"
+              height="20%"
               fill="currentColor"
-              class="icon bi bi-cloud-upload p-4 justify-content-center"
+              class="icon bi bi-cloud-upload p-5"
               viewBox="0 0 16 16"
             >
               <path
@@ -30,25 +27,105 @@
               <path
                 fill-rule="evenodd"
                 d="M7.646 4.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V14.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3z"
-              /></svg
-          ></label>
+              />
+            </svg>
+            <p>Upload CSV file</p></label
+          >
           <input id="file-input" type="file" />
         </div>
       </div>
-      <div class="col-4"><h4>Evaluation History</h4></div>
+      <div class="col-4 me-5">
+        <h4>Evaluation History</h4>
+        <div class="input-group has-validation mb-1">
+          <span class="input-group-text" id="inputGroupPrepend"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-person-circle"
+              viewBox="0 0 16 16"
+            >
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+              <path
+                fill-rule="evenodd"
+                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+              /></svg
+          ></span>
+          <span class="border p-1">Team Name</span>
+          <span class="border p-1" colspan="2">0.89</span>
+          <input
+            type="text"
+            class="form-control"
+            id="validationCustomUsername"
+            aria-describedby="inputGroupPrepend"
+            required
+          />
+        </div>
+        <div class="input-group has-validation mb-1">
+          <span class="input-group-text" id="inputGroupPrepend"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-person-circle"
+              viewBox="0 0 16 16"
+            >
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+              <path
+                fill-rule="evenodd"
+                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+              /></svg
+          ></span>
+          <span class="border p-1">Team Name</span>
+          <span class="border p-1" colspan="2">0.89</span>
+          <input
+            type="text"
+            class="form-control"
+            id="validationCustomUsername"
+            aria-describedby="inputGroupPrepend"
+            required
+          />
+        </div>
+        <div class="input-group has-validation mb-1">
+          <span class="input-group-text" id="inputGroupPrepend"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-person"
+              viewBox="0 0 16 16"
+            >
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+              <path
+                fill-rule="evenodd"
+                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+              /></svg
+          ></span>
+          <span class="border p-1">Team Name</span>
+          <span class="border p-1" colspan="2">0.89</span>
+          <input
+            type="text"
+            class="form-control"
+            id="validationCustomUsername"
+            aria-describedby="inputGroupPrepend"
+            required
+          />
+        </div>
+      </div>
     </div>
   </div>
 </template>
 <script>
 import projects from "@/services/projects";
 import usernavigation from "@/components/common/UserNavigation";
-// import ChooseFile from "@/components/common/chooseFile.vue";
 
 export default {
   name: "project-view",
   components: {
     usernavigation,
-    // ChooseFile,
   },
 
   data() {
@@ -81,13 +158,11 @@ export default {
   display: none;
 }
 .image-upload {
-  background-color: rgb(230, 228, 228);
-}
-.bord {
   width: 100%;
-  height: 100%;
+  background-color: rgb(247, 245, 245);
 }
 .icon {
-  align-items: center;
+  margin-left: auto;
+  cursor: pointer;
 }
 </style>
