@@ -1,7 +1,7 @@
 <template>
   <table class="table table-bordered">
     <thead>
-      <tr>
+      <tr class="table-row">
         <th>Project</th>
         <th>Delete</th>
       </tr>
@@ -65,5 +65,8 @@ export default {
 }
 .delete-icon:hover {
   color: red;
+}
+.table-row {
+  background-color: #eaeaea;
 }
 </style>
