@@ -10,11 +10,11 @@
     </div>
     <div class="container mb-5">
       <div class="row">
-        <div class="col-sm-7">
+        <div class="col-sm-7 p-5">
           <div
             class="image-upload d-flex flex-row justify-content-center align-items-center"
             style="
-              background-color: #bdbbb0;
+              background-color: #eaeaea;
               width: 80%;
               max-height: 300px;
               min-height: 45vh;
@@ -44,19 +44,17 @@
             <input id="file-input" type="file" />
           </div>
         </div>
-        <div class="col-sm-5 p-0">
+        <div class="col-sm-5 p-5">
           <h4>Evaluation History</h4>
-          <div
-            class="input-group has-validation mb-1 row"
-            style="min-width: 300px"
-          >
+          <div class="input-group has-validation row" style="min-width: 300px">
             <div
-              class="col-sm-2 border border-light bg-secondary h-150px justify-content-center align-items-center"
+              class="col-sm-2 border border-light justify-content-center align-items-center ms-2 d-flex"
+              style="background-color: #eaeaea; width: 20%"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="30"
-                height="30"
+                height="40"
                 fill="currentColor"
                 class="bi bi-person-circle"
                 viewBox="0 0 16 16"
@@ -68,8 +66,12 @@
                 />
               </svg>
             </div>
-            <div class="col-4 border p-1">Team Name</div>
-            <div class="col-4 border p-1" colspan="2">0.89</div>
+            <div
+              class="col-4 border d-flex justify-content-center align-items-center"
+            >
+              Team Name
+            </div>
+            <div class="col-4 border d-flex p-2 align-items-right">0.89</div>
           </div>
         </div>
       </div>
