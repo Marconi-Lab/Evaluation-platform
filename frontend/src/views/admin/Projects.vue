@@ -1,22 +1,22 @@
 <template>
-  <div v-if="model">
-    <modelPage>
-      <div>
-        <UserNavigation :username="'Admin'" />
-        <div class="container">
-          <div class="my-4">
-            <h4 class="text-center">The Marconi Lab ML Evaluation Platform</h4>
-            <SearchBar />
-            <div class="m-5">
-              <div class="mb-3">
-                <PrimaryButton @onClick="handleAddProject" />
-              </div>
-              <ProjectsTable />
-            </div>
+  <div>
+    <div v-if="model">
+      <modelPage></modelPage>
+    </div>
+
+    <UserNavigation :username="'Admin'" />
+    <div class="container">
+      <div class="my-4">
+        <h4 class="text-center">The Marconi Lab ML Evaluation Platform</h4>
+        <SearchBar />
+        <div class="m-5">
+          <div class="mb-3">
+            <PrimaryButton @onClick="handleAddProject" />
           </div>
+          <ProjectsTable />
         </div>
       </div>
-    </modelPage>
+    </div>
   </div>
 </template>
 
@@ -42,7 +42,7 @@ export default {
     };
   },
   methods: {
-    handleAddProjectClick() {
+    handleAddProject() {
       this.model = true;
     },
   },
