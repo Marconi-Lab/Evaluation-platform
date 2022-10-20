@@ -1,64 +1,40 @@
 <template>
-  <!-- Scrollable modal -->
-  <!-- Button trigger modal -->
-  <!-- <button
-    type="button"
-    class="btn btn-primary"
-    data-bs-toggle="modal"
-    data-bs-target="#exampleModal"
-  >
-    Launch demo modal
-  </button> -->
-
-  <!-- Modal -->
-  <div
-    class="modal fade"
-    id="exampleModal"
-    tabindex="-1"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog">
-      <div class="modal-content p-3">
-        <div class="p-3">
-          <label
-            for="exampleFormControlTextarea1"
-            class="form-label"
-            id="exampleModalLabel"
-            ><h6>Project Title</h6></label
+  <div class="page d-flex justify-content-center align-items-center">
+    <div class="model">
+      <label
+        for="exampleFormControlTextarea1"
+        class="form-label ms-4 mt-4"
+        id="exampleModalLabel"
+        ><h6>Project Title</h6></label
+      >
+      <input class="form-control ms-4" type="text" />
+      <label for="exampleFormControlTextarea1" class="form-label ms-4 mt-3"
+        ><h6>Project Description</h6></label
+      >
+      <textarea
+        class="form-control ms-4"
+        id="exampleFormControlTextarea1"
+        rows="5"
+      ></textarea>
+      <div class="row mt-4">
+        <div class="col-sm-5">
+          <label for="formFile" class="form-label ms-4"
+            ><h6>Validation File Labels</h6></label
           >
-          <input class="form-control" type="text" />
+          <input class="form-control ms-4" type="file" id="formFile" />
         </div>
-        <div class="modal-body">
-          <div class="mb-4">
-            <label for="exampleFormControlTextarea1" class="form-label"
-              ><h6>Project Description</h6></label
-            >
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="5"
-            ></textarea>
-          </div>
-          <div class="row mt-4">
-            <div class="col-sm">
-              <label for="formFile" class="form-label"
-                ><h6>Validation File Labels</h6></label
-              >
-              <input class="form-control" type="file" id="formFile" />
-            </div>
-            <div class="col-sm">
-              <label for="formFile" class="form-label"
-                ><h6>Project Cover Image</h6></label
-              >
-              <input class="form-control" type="file" />
-            </div>
-          </div>
-          <div class="mb-2 mt-5" style="text-align: center">
-            <PrimaryButton />
-          </div>
+        <div class="col-sm-5">
+          <label for="formFile" class="form-label ms-4"
+            ><h6>Project Cover Image</h6></label
+          >
+          <input class="form-control ms-4" type="file" />
         </div>
       </div>
+      <div class="mt-4" style="text-align: center">
+        <PrimaryButton />
+      </div>
+
+      <slot></slot>
     </div>
   </div>
 </template>
@@ -74,5 +50,25 @@ export default {
 .form-control {
   background-color: #eaeaea;
   border-radius: 0%;
+}
+.page {
+  background-color: rgba(0, 0, 0, 0.192);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 222;
+}
+.model {
+  width: 40%;
+  height: 80%;
+  background-color: white;
+}
+.button {
+  padding: 20px 30px;
+  border: none;
+  font-size: 16px;
+  background-color: crimson;
+  color: #fff;
+  cursor: pointer;
 }
 </style>
