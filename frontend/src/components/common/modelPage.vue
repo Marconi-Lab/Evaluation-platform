@@ -65,7 +65,10 @@
 <script>
 import PrimaryButton from "@/components/common/PrimaryButton.vue";
 
-export default { components: { PrimaryButton } };
+export default {
+  name: "model-page",
+  components: { PrimaryButton },
+};
 </script>
 <style scoped>
 .form-control {

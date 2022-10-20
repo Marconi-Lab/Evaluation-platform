@@ -22,10 +22,7 @@ const routes = [
       {
         path: "/user",
         name: "LoginScreen",
-        component: () =>
-          import(
-            /* webpackChunkName: "about" */ "../views/user/LoginScreen.vue"
-          ),
+        component: () => import("../views/user/LoginScreen.vue"),
       },
     ],
   },

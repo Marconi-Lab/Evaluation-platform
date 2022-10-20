@@ -1,5 +1,5 @@
 <template>
-  <table class="table table-bordered">
+  <table class="table table-bordered align-baseline">
     <thead>
       <tr class="table-row">
         <th>Project</th>
