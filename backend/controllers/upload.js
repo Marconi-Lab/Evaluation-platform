@@ -23,18 +23,7 @@ exports.upload = async (req, res) => {
       if (
         file.mimetype == "application/vnd.ms-excel" ||
         file.mimetype == "text/csv"
-      )
-        {}
-      //send response
-      // res.send({
-      //   status: true,
-      //   message: "File is uploaded",
-      //   data: {
-      //     name: file.name,
-      //     mimetype: file.mimetype,
-      //     size: file.size,
-      //   },
-      // });
+      ) { }
       else {
         console.log("Please Upload CSV Format file");
         return res.send({ msg: "Please Upload CSV Format file" });
@@ -44,7 +33,6 @@ exports.upload = async (req, res) => {
       const { teamid, projectid } = req.body
 
       score(name, "static/one.csv").then(data => {
-        console.log("----------------")
 
         const newEvaluation = new evalProject({
           team_id: teamid,
@@ -53,13 +41,22 @@ exports.upload = async (req, res) => {
         });
 
         newEvaluation.save();
-        res.json({
-          data: newEvaluation,
-          msg: "successfull"
-        });
 
       });
-      //score has to be sorted
+      //query for the scores of the project id provided
+      //scores have to be sorted
+      const projectEvaluation = await evalProject.find({ project_id: projectid });
+      const idScores = [];
+      for (let evaluation of projectEvaluation) {
+        idScores.push(evaluation.score)
+      }
+      idScores.sort().reverse()
+      for (let i in idScores) { console.log(idScores[i]) }
+
+      res.json({
+        scores: idScores,
+        msg: "successfull"
+      });
 
     }
   } catch (err) {

@@ -83,11 +83,12 @@ exports.getEvaluation = async (req, res, next) => {
 
         const projEvaluation = await evalProject.find({ project_id: projectid });
         if (!projEvaluation) return res.json({ msg: "Project not yet evaluated (Upload csv for evaluation)" });
+
         res.status(200).json({ data: projEvaluation });
     }
     catch (err) {
         res.status(401).json({
-            msg: 'Incorrect Project Id',
+            msg: `${err}`
         });
     }
 }

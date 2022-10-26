@@ -15,7 +15,7 @@ router.post("/file", auth.token, file.upload);
 
 router.get("/projects", proj.getProjects);
 
-// router.put('/addproject', auth.isAdmin, proj.putProject);
+router.put('/addproject', auth.isAdmin, proj.putProject);
 
 // TODO - DELETE /project/<projectID> (admin only)
 router.delete("/project/:project_id", auth.isAdmin, proj.deleteProject);
